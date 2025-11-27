@@ -1,0 +1,501 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #111827, #1F2937);
+    color: #fff;
+}
+
+.login-container {
+    position: relative;
+    width: 850px;
+    height: 550px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 30px;
+    box-shadow: 0 0 50px rgba(139, 92, 246, 0.2);
+    margin: 20px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(34, 211, 238, 0.3);
+    /* Thêm border cơ bản nhẹ để highlight */
+}
+
+/* Hiệu ứng ánh sáng chạy quanh border */
+.login-container::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 30px;
+    padding: 2px;
+    background: linear-gradient(90deg,
+            transparent,
+            rgb(198, 97, 231),
+            transparent);
+    filter: blur(6px);
+    animation: shine 4s linear infinite;
+    z-index: -1;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) translateY(-100%);
+    }
+
+    100% {
+        transform: translateX(100%) translateY(100%);
+    }
+}
+
+:root {
+    --glow-angle: 0deg;
+}
+
+@keyframes glowRotate {
+    to {
+        --glow-angle: 360deg;
+    }
+}
+
+.login-container h1 {
+    font-size: 36px;
+    margin: -10px 0;
+    text-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+}
+
+.login-container p {
+    font-size: 14.5px;
+    margin: 15px 0;
+}
+
+form {
+    width: 100%;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-box {
+    position: absolute;
+    right: 0px;
+    width: 50%;
+    height: 100%;
+    padding: 40px;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+    align-items: center;
+    z-index: 1;
+    transition: right 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1.2s, visibility 0s 1.2s;
+}
+
+.login-container.active .form-box {
+    right: 50%;
+}
+
+.form-box.login {
+    visibility: visible;
+}
+
+.login-container.active .form-box.login {
+    visibility: hidden;
+}
+
+.form-box.register {
+    visibility: hidden;
+}
+
+.login-container.active .form-box.register {
+    visibility: visible;
+}
+
+.input-box {
+    position: relative;
+    margin: 30px 0;
+    animation: slideUp 0.5s ease-in-out forwards;
+    opacity: 0;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.input-box:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.input-box:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.input-box:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.input-box:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+.input-box input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 13px 50px 13px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.input-box input:focus {
+    box-shadow: 0 0 15px rgba(34, 211, 238, 0.7);
+    transform: scale(1.02);
+}
+
+.input-box input::placeholder {
+    color: #aaa;
+    font-weight: 400;
+}
+
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #22D3EE;
+}
+
+.forget-link {
+    margin: -15px 0 15px;
+}
+
+.forget-link a {
+    font-size: 14.5px;
+    color: #22D3EE;
+}
+
+.login-btn {
+    width: 100%;
+    height: 48px;
+    border: none;
+    outline: none;
+    background: linear-gradient(90deg, #8B5CF6, #22D3EE);
+    box-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.login-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.8);
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1.05);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+.toggle-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.toggle-box::before {
+    content: '';
+    position: absolute;
+    left: -250%;
+    width: 300%;
+    height: 100%;
+    background: linear-gradient(90deg, #8B5CF6, #22D3EE);
+    z-index: 2;
+    border-radius: 150px;
+    transition: 1.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.login-container.active .toggle-box::before {
+    left: 50%;
+}
+
+.toggle-panel {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+    align-items: center;
+    z-index: 2;
+    transition: 0.6s ease-in-out;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.toggle-panel.toggle-left {
+    left: 0;
+    transition-delay: 1.2s;
+}
+
+.login-container.active .toggle-panel.toggle-left {
+    left: -50%;
+    transition-delay: 0.6s;
+}
+
+.toggle-panel.toggle-right {
+    right: -50%;
+    transition-delay: 0.6s;
+}
+
+.login-container.active .toggle-panel.toggle-right {
+    right: 0;
+    transition-delay: 1.2s;
+}
+
+.toggle-panel p {
+    margin-bottom: 20px;
+}
+
+.toggle-panel .login-btn {
+    width: 160px;
+    height: 46px;
+    background: transparent;
+    border: 2px solid #fff;
+    box-shadow: none;
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.toggle-panel .login-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+}
+
+/* Xóa outline khi click chuột, giữ lại khi dùng Tab */
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Hiệu ứng focus đẹp khi dùng Tab (tùy chọn) */
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid rgba(139, 92, 246, 0.5);
+    outline-offset: 3px;
+    border-radius: 8px;
+}
+
+/* Phần phân cách "HOẶC" đẹp hơn */
+.social-divider {
+    position: relative;
+    text-align: center;
+    margin: 25px 0 20px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.social-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: translateY(-50%);
+}
+
+/* Nút Google siêu đẹp, chuẩn tông neon */
+.google-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    width: 100%;
+    padding: 14px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.google-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+}
+
+.google-btn:hover::before {
+    transform: translateX(100%);
+}
+
+.google-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow:
+        0 0 20px rgba(138, 43, 226, 0.4),
+        0 8px 25px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.google-btn:active {
+    transform: translateY(0);
+}
+
+/* Logo Google */
+.google-btn img {
+    width: 22px;
+    height: 22px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+/* ======== Back to Home Link ======== */
+.back-to-home {
+    margin-top: 40px;
+    /* khoảng cách thoải mái với nút Sign Up / Login */
+    text-align: center;
+}
+
+.back-to-home.left {
+    position: absolute;
+    bottom: 60px;
+    /* cách đáy panel một chút */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+
+.back-to-home.right {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+
+.back-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 8px 16px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.back-link:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.15);
+    text-decoration: none;
+}
+
+
+/* ============= REALTIME VALIDATION ============= */
+.input-box {
+    position: relative;
+    margin-bottom: 26px;
+    /* đủ chỗ cho chữ lỗi */
+}
+
+.input-box input {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Chỉ đổi viền khi có lỗi */
+.input-box.error input {
+    border-color: #ff3b6b;
+    box-shadow: 0 0 10px rgba(255, 59, 107, 0.4);
+}
+
+/* Chữ lỗi bên dưới */
+.error-text {
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    color: #ff6b9d;
+    font-size: 12.5px;
+    font-weight: 500;
+    text-shadow: 0 0 8px rgba(255, 107, 155, 0.5);
+    animation: fadeIn 0.3s ease;
+    white-space: nowrap;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

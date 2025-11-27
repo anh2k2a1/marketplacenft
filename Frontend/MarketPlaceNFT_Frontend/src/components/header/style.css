@@ -1,0 +1,109 @@
+.btn-login {
+    padding: 10px 20px;
+    background-color: rgba(79, 14, 94, 0.5);
+    /* Blue color */
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    /* Ensure it behaves like a button */
+    cursor: pointer;
+    /* Show pointer on hover */
+    transition: background-color 0.3s ease;
+    /* Smooth transition for hover effect */
+}
+
+.btn-login:hover {
+    background-color: #357ABD;
+    /* Darker blue on hover */
+}
+
+.btn-login:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(72, 124, 216, 0.5);
+    /* Add focus ring */
+}
+
+.nav-link.active {
+    font-weight: bold;
+    /* In đậm */
+    color: #a7b904;
+    /* Màu sắc khi trang đang được chọn, có thể thay đổi */
+}
+
+
+/* Hiệu ứng neon đổi màu liên tục */
+.username-glow {
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: neonFlow 4s ease-in-out infinite;
+}
+
+@keyframes neonFlow {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Thêm hiệu ứng phát sáng nhẹ */
+.username-glow::before {
+    text-shadow:
+        0 0 10px rgba(255, 0, 255, 0.8),
+        0 0 20px rgba(0, 255, 255, 0.6),
+        0 0 30px rgba(255, 255, 0, 0.4);
+}
+
+.animate-in {
+    animation: animateIn 0.3s ease-out;
+}
+
+@keyframes animateIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Hiệu ứng shake khi bấm No */
+.shake {
+    animation: shake 0.6s ease-in-out;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-8px);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(8px);
+    }
+}

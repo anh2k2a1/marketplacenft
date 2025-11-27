@@ -1,0 +1,19 @@
+@keyframes border-rotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-border {
+  border-radius: 0.75rem; /* match with form rounded-xl */
+  background: linear-gradient(270deg, #ff0080, #7928ca, #2afadf, #ff0080);
+  background-size: 600% 600%;
+  animation: border-rotate 6s linear infinite;
+  filter: blur(2px); /* tạo glow */
+}

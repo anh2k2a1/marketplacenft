@@ -1,0 +1,181 @@
+/* animated gradient that slowly moves */
+@keyframes premiumGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* root input style target */
+#product-search.premium {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01)),
+        rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 6px 30px rgba(2, 2, 6, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: box-shadow 220ms ease, border-color 220ms ease, transform 220ms ease;
+    position: relative;
+}
+
+/* subtle animated highlight bar layered above input using background gradient */
+#product-search.premium::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    margin: 1px;
+    /* keep gradient inside border */
+    border-radius: 9999px;
+    background: linear-gradient(90deg, rgba(255, 200, 80, 0.06) 0%, rgba(255, 255, 255, 0.00) 30%, rgba(255, 200, 80, 0.06) 100%);
+    background-size: 300% 100%;
+    mix-blend-mode: screen;
+    filter: blur(8px);
+    opacity: 0.6;
+    animation: premiumGradient 6.5s linear infinite;
+}
+
+/* Hover/focus: golden border + stronger glow */
+#product-search.premium:hover,
+#product-search.premium:focus {
+    border-color: rgba(255, 200, 80, 0.95);
+    box-shadow: 0 12px 50px rgba(255, 200, 80, 0.08), 0 6px 30px rgba(2, 2, 6, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+    transform: translateY(-1px);
+}
+
+/* ensure placeholder & text above pseudo element */
+#product-search.premium,
+#product-search.premium::placeholder {
+    position: relative;
+    z-index: 10;
+}
+
+/* Phần chứa danh sách cuộn ngang */
+.marquee-container {
+    position: relative;
+    width: auto;
+    justify-content: center;
+    display: flex;
+    padding: 10px 0;
+    background-color: transparent;
+    /* trong suốt */
+    /* Màu nền cho băng chuyền */
+    overflow: hidden;
+    /* Đảm bảo không có phần thừa ra ngoài */
+
+}
+
+/* Các mục trong băng chuyền */
+.marquee-items {
+    display: flex;
+    /* gap: 1.5rem; */
+    animation: marquee 25s linear infinite;
+    /* Thêm hiệu ứng cuộn liên tục */
+    flex-wrap: nowrap;
+    /* Đảm bảo các thẻ không bị cuộn xuống dòng mới */
+}
+
+/* Hiệu ứng cuộn ngang */
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+        /* Bắt đầu từ bên phải */
+    }
+
+    100% {
+        transform: translateX(-100%);
+        /* Kết thúc ở bên trái */
+    }
+}
+
+/* Định dạng cho mỗi mục trong băng chuyền */
+.marquee-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    height: 230px;
+    margin-right: 1.5rem;
+}
+
+/* Tùy chỉnh kích thước ảnh trong băng chuyền */
+.marquee-item img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    /* Đảm bảo ảnh có góc bo tròn */
+}
+
+.marquee-item p {
+    margin-top: 8px;
+    font-size: 0.875rem;
+    color: white;
+}
+
+.marquee-container:hover .marquee-items {
+    animation-play-state: paused;
+}
+
+.marquee-container .marquee-items {
+    animation-play-state: running;
+    /* Ensure animation runs by default */
+}
+
+.marquee-track {
+    display: flex;
+    width: fit-content;
+    animation: marquee 25s linear infinite;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-33.33%);
+    }
+}
+
+.marquee-container {
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-items {
+    display: inline-flex;
+    animation: marquee 25s linear infinite;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-33.33%);
+    }
+}
+
+/* Tùy chọn: hover tạm dừng animation */
+.marquee-container:hover .marquee-items {
+    animation-play-state: paused;
+}
+
+/*category page*/
+.custom-category-spacing {
+    margin-bottom: 50px;
+    /* Adjust this value as needed */
+}

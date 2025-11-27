@@ -1,0 +1,31 @@
+input[type="number"] {
+    background-color: transparent;
+    /* Đảm bảo nền ô nhập liệu trong suốt */
+    color: white;
+    /* Chữ màu trắng */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Viền nhẹ cho ô nhập */
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    /* Ẩn các nút tăng giảm */
+    margin: 0;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    /* Loại bỏ viền focus mặc định */
+}
+
+input[type="number"]:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Nền nhẹ khi hover */
+}
+
+input[type="number"]::-webkit-outer-spin-button:hover,
+input[type="number"]::-webkit-inner-spin-button:hover {
+    background-color: transparent;
+    /* Đảm bảo không có nền trắng khi hover vào các nút */
+}
