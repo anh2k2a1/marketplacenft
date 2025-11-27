@@ -110,7 +110,8 @@ build/
 .vscode/
 
 # Local configuration
-scent.json
-BackEnd/src/main/resources/application-postgres.properties
+secret.json
+
+.env
 # Thêm vào .gitignore
-BackEnd/src/main/resources/application*.properties
+# BackEnd/src/main/resources/application*.properties

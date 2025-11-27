@@ -70,10 +70,10 @@
 		</dependency>
 		<!-- JPA + MySQL -->
 		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
-		</dependency>
+    <groupId>io.github.cdimascio</groupId>
+    <artifactId>java-dotenv</artifactId>
+    <version>5.2.2</version>
+</dependency>
 
 		<!-- Spring Boot Starter Web -->
 		<dependency>
